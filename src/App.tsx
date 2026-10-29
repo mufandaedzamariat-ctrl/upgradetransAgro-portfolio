@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import companyLogo from './assets/company-logo.jpeg';
 import './App.css';
 
 interface TeamMember {
@@ -23,7 +24,7 @@ const App: React.FC = () => {
       {/* Navigation Bar */}
       <nav className="navbar">
         <div className="nav-brand">
-          <span className="brand-badge">UJ</span>
+          <img className="brand-logo" src={companyLogo} alt="Upgrade Transformation logo" />
           <div>
             <h2>UPGRADE TRANSFORMATION</h2>
             <p>Pvt Ltd • Fruit & Veg</p>
