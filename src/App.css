@@ -523,6 +523,14 @@ body {
   outline: none;
   transition: border-color 0.3s ease;
   background: white;
+  color: #2c3e50;
+  color-scheme: light;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #777;
+  opacity: 1;
 }
 
 .form-group input:focus,
