@@ -196,30 +196,41 @@ const App: React.FC = () => {
                 <span className="icon">📧</span>
                 <div>
                   <h4>Email Address</h4>
-                  <p>upgrardesales70@gmail.com</p>
+                  <p><a className="contact-link" href="mailto:upgrardesales70@gmail.com">upgrardesales70@gmail.com</a></p>
                 </div>
               </div>
               <div className="contact-item">
                 <span className="icon">📞</span>
                 <div>
                   <h4>Phone Numbers</h4>
-                  <p>+263 78 453 4730</p>
-                  <p>+263 71 541 0583</p>
-                  <p>+263 77 428 9039</p>
+                  <p><a className="contact-link" href="https://wa.me/263784534730" target="_blank" rel="noreferrer">+263 78 453 4730</a></p>
+                  <p><a className="contact-link" href="https://wa.me/263715410583" target="_blank" rel="noreferrer">+263 71 541 0583</a></p>
+                  <p><a className="contact-link" href="https://wa.me/263774289039" target="_blank" rel="noreferrer">+263 77 428 9039</a></p>
                 </div>
               </div>
             </div>
             <div className="contact-form-box">
               <h3>Send Us a Message</h3>
-              <form onSubmit={(e) => { e.preventDefault(); alert('Thank you for your message! We will get back to you shortly.'); }}>
+              <form onSubmit={(e) => {
+                e.preventDefault();
+                const formData = new FormData(e.currentTarget);
+                const subject = `Website inquiry from ${formData.get('name')}`;
+                const body = [
+                  `Name: ${formData.get('name')}`,
+                  `Email: ${formData.get('email')}`,
+                  '',
+                  formData.get('message'),
+                ].join('\n');
+                window.location.href = `mailto:upgrardesales70@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+              }}>
                 <div className="form-group">
-                  <input type="text" placeholder="Your Name" required />
+                  <input type="text" name="name" placeholder="Your Name" required />
                 </div>
                 <div className="form-group">
-                  <input type="email" placeholder="Your Email" required />
+                  <input type="email" name="email" placeholder="Your Email" required />
                 </div>
                 <div className="form-group">
-                  <textarea rows={4} placeholder="Your Message" required></textarea>
+                  <textarea rows={4} name="message" placeholder="Your Message" required></textarea>
                 </div>
                 <button type="submit" className="btn btn-primary btn-full">Send Message</button>
               </form>

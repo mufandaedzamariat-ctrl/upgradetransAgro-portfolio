@@ -483,6 +483,18 @@ body {
   font-size: 0.95rem;
 }
 
+.contact-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover,
+.contact-link:focus-visible {
+  color: #2e7d32;
+  text-decoration: underline;
+}
+
 .contact-form-box {
   background: #f9fbf9;
   padding: 40px;
